@@ -14,7 +14,23 @@ class CursoController extends Controller
         $y=34;
         echo 'la suma es: '.$this->sumar($x,$y);
     }
-    private function sumar($x,$y){
+    public function sumar($x,$y){
         return $x+$y;
+    }
+    public function suma($x,$y){
+        return "El resultado de la suma ".$x." + ".$y." es: ".$x+$y;
+    }
+    public function resta($x,$y){
+        return "El resultado de la resta ".$x." - ".$y." es: ".$x-$y;
+    }
+    public function multiplicacion($x,$y){
+        return "El resultado de la multiplicacion ".$x." x ".$y." es: ".$x*$y;
+    }
+    public function division($x,$y){
+        if($x>0 && $y>0){
+            return "El resultado de dividir ".$x." / ".$y." es: ".$x/$y;
+        }else{
+            return "Imposible dividir un valor con 0";
+        }
     }
 }
