@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PostController extends Controller
 {
+    private $post=[];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $num=70;
-        $data='';
-        $names=['Juan','Pedro','Maria','Jose'];
-        return view('app.directivas',compact('num','data','names'));
+        return view('posts.index',[
+            'posts'=>$this->post
+        ]);
     }
 
     /**
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
