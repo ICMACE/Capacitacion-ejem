@@ -25,7 +25,13 @@ class PostController extends Controller
         $a['content']= $request->content;
         array_push($this->post,$a);
         $posts = $this->post;
-        return view('posts.index', compact('posts'));
+        //return view('posts.index', compact('posts'))->with('success', 'Post creado.');
+        return view('posts.index', [
+            'posts' => $posts,
+            'success' => 'Post creado.'
+        ]);
+        
+
     }
     public function show(string $id)
     {

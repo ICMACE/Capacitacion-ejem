@@ -1,4 +1,4 @@
-<div class="p-4 text-white bg-{{ $type ?? 'blue' }}-500 rounded">
+<div class="alert alert-{{ $type ?? 'info' }}" role="alert">
     <strong>{{ $message ?? 'Alerta' }}</strong>
-    <div>{{ $slot }}</div>
+    {{ $slot }}
 </div>
