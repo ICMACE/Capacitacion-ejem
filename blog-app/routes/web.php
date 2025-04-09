@@ -17,3 +17,11 @@ Route::controller(PostController::class)->group(function () {
 });
 
 Route::get('datos',[UserController::class,'data'])->name('datos');
+Route::get('guardar',[UserController::class,'store'])->name('store');
+Route::get('actualizar/{id}',[UserController::class,'update'])->name('actualizar');
+Route::get('borrar/{id}',[UserController::class,'destroy'])->name('borrar');
+
+Route::get('usuarios', function () {
+    return view(view: 'form');
+})->name('inicio');
+Route::put('form/guardar',[UserController::class,'save'])->name('save');
