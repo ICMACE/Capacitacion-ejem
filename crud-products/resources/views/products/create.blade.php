@@ -2,8 +2,9 @@
 @section('title', 'Products Create')
 @section('content')
     <h2>Crear producto</h2>
-    @include('components.menu')
-    <form action="{{ route('product.store') }}">
+    @include('include.menu')
+    <form action="{{ route('product.store') }}" method="POST">
+        @csrf
         <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" name="name" id="name" placeholder="Nombre del producto" class="form-control">

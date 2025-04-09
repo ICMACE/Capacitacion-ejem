@@ -50,17 +50,24 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+        return view("products.edit", compact("product"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name=$request->name;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->save();
+
+        return redirect()->route('product.index')->with('success', 'Producto actualizado.');
     }
 
     /**
@@ -68,6 +75,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product = Product::find($product->id);
+        $product->delete();
+        return redirect()->route('product.index')->with('success', 'Producto eliminado.');
     }
 }
