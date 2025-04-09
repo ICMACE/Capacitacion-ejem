@@ -2,12 +2,13 @@
 @section('title', 'Products List')
 @section('content')
 <h1>Productos</h1>
-<table style="width: 100%; margin-bottom: 20px;">
-    <tr>
-        <td><a href="{{ route('product.create') }}" class="btn btn-info">Crear</a></td>
-    </tr>
-</table>
 
+@include('components.menu')
+@if (session('status'))
+    <x-alert title="Alerta" name="alert">
+        {{ session('status') }}
+    </x-alert>
+@endif
 <table class="table">
     <thead>
         <tr>

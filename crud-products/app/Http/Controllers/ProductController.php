@@ -29,7 +29,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new Product();
+        $user->name=$request->name;
+        $user->description=$request->description;
+        $user->price=$request->price;
+        $user->save();
+
+
+        return redirect()->route('product.index')->with('success', 'Producto creado.');
     }
 
     /**

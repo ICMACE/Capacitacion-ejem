@@ -2,6 +2,7 @@
 @section('title', 'Products Create')
 @section('content')
     <h2>Crear producto</h2>
+    @include('components.menu')
     <form action="{{ route('product.store') }}">
         <div class="form-group">
             <label for="">Nombre</label>
@@ -13,8 +14,10 @@
         </div>
         <div class="form-group">
             <label for="">Precio</label>
-            <input type="text" name="price" id="price" placeholder="Precio del producto" class="form-control">
+            <input type="number" step="0.1" min=1 name="price" id="price" placeholder="Precio del producto" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
     </form>
 @endsection
