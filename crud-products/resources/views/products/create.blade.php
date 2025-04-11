@@ -3,11 +3,15 @@
 @section('content')
     <h2>Crear producto</h2>
     @include('include.menu')
+    @include('include.alerts')
     <form action="{{ route('product.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" name="name" id="name" placeholder="Nombre del producto" class="form-control">
+            @error('name')
+                <label style="font-size:12px;color:rgb(85, 85, 85);">*{{ $message }}</label>                
+            @enderror
         </div>
         <div class="form-group">
             <label for="">Descripción</label>

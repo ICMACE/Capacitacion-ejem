@@ -2,8 +2,7 @@
 @section('title', 'Products Edit')
 @section('content')
     @include('include.menu')
-    
-
+    @include('include.alerts')
     <div class="card">
         <div class="card-header">
             <h2>{{ $product->name }}</h2>

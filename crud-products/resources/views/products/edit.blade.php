@@ -3,6 +3,7 @@
 @section('content')
     <h2>Actualizar producto</h2>
     @include('include.menu')
+    @include('include.alerts')
     <form action="{{ route('product.update',$product->id) }}" method="POST">
         @csrf
         @method('PUT')

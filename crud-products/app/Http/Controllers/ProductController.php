@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,19 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
+        /*$validete=$request->validate([
+            "name"=> "required | max:10",
+            "description"=> "required",
+            "price"=> [
+                "required",
+                "numeric",
+                "min:0"
+            ],
+        ],$messages);*/
+        $validated =$request->validated();
+        
         $user = new Product();
         $user->name=$request->name;
         $user->description=$request->description;
