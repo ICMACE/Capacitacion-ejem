@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function index()
     {
@@ -49,7 +49,7 @@ class UserController extends Controller
         // Aquí puedes implementar la lógica para eliminar un usuario
         // Eliminar el usuario de la base de datos
     }
-    public function FirstUser(){
+    public function firstUser(){
         User::create([
             'name' => 'Miguel Castro',
             'email' => 'miguel.castro@pjedomex.gob.mx',
