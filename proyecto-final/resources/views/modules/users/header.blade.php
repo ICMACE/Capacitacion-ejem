@@ -1,8 +1,9 @@
 <header class="main-header">
 	<!-- Logo -->
-	<a href="index2.html" class="logo">
+	<a href="{{ route('home') }}" class="logo">
 		<!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b>A</b>LT</span>
+		<img src="{{ url('storage/plantilla/logo-blanco-lineal.png') }}" alt="" class="img-responsive" style="padding: 10px">
 		<!-- logo for regular state and mobile devices -->
 		<span class="logo-lg"><b>Admin</b>LTE</span>
 	</a>
@@ -222,33 +223,25 @@
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-						<span class="hidden-xs">Alexander Pierce</span>
+						@if(Auth::user()->photo=='')
+							<img src="{{ url('storage/users/mace.png') }}" class="user-image" alt="User Image">
+						@else
+							<img src="{{ url('storage/users/'.Auth::user()->photo) }}" class="user-image" alt="User Image">
+						@endif
+						{{-- 
+						<img src="{{ url('storage/users/mace.png') }}" class="user-image" alt="User Image">
+						--}}
+						<span class="hidden-xs">{{ Auth::user()->name }}</span>
+						
 					</a>
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu" style="background-color: #cbcbcb !important;">
 						<!-- User image -->
 						<li class="user-header">
-							<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+							<img src="{{ url('storage/users/mace.png') }}" class="img-circle" alt="User Image">
 
 							<p>
-								Alexander Pierce - Web Developer
-								<small>Member since Nov. 2012</small>
+								{{ Auth::user()->name }}
 							</p>
-						</li>
-						<!-- Menu Body -->
-						<li class="user-body">
-							<div class="row">
-								<div class="col-xs-4 text-center">
-									<a href="#">Followers</a>
-								</div>
-								<div class="col-xs-4 text-center">
-									<a href="#">Sales</a>
-								</div>
-								<div class="col-xs-4 text-center">
-									<a href="#">Friends</a>
-								</div>
-							</div>
-							<!-- /.row -->
 						</li>
 						<!-- Menu Footer-->
 						<li class="user-footer">
