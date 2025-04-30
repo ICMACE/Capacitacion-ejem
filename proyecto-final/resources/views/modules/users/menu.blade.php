@@ -34,7 +34,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="{{ url('branches') }}">
+				<a href="{{ route('branches.index') }}">
 					<i class="fa fa-home"></i> <span>Sucursales</span>
 				</a>
 			</li>
